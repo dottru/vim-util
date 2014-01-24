@@ -11,8 +11,8 @@ endfunction
 
 " Saves and execs first argument
 function! util#Save (...)
-    normal :w
     call util#Clear()
+    normal :w
 endfunction
 
 " Clears search hist and execs first argument
@@ -25,6 +25,7 @@ function! util#Clear (...)
 endfunction
 
 function! util#SudoWrite ()
+    call util#Clear()
     normal :w !sudo tee %
     echom "File written as root."
 endfunction
